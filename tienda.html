@@ -1,106 +1,143 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Tienda de Argentum Online</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
     <script src="https://sdk.mercadopago.com/js/v2"></script>
-</head>
-<body class="is-preload">
-
+  </head>
+  <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Argentum</a>
+      </header>
 
-        <!-- Header -->
-        <header id="header">
-            <a href="index.html" class="logo">Argentum</a>
-        </header>
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="imagenes.html">Galería</a></li>
+          <li class="active"><a href="tienda.html">Tienda</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon brands fa-twitter"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-facebook-f"
+              ><span class="label">Facebook</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-instagram"
+              ><span class="label">Instagram</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+        </ul>
+      </nav>
 
-        <!-- Nav -->
-        <nav id="nav">
-            <ul class="links">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="imagenes.html">Galería</a></li>
-                <li class="active"><a href="tienda.html">Tienda</a></li>
+      <!-- Main -->
+      <div id="main">
+        <!-- Productos -->
+        <section class="products">
+          <h2>Productos Disponibles</h2>
+          <div class="product-list" id="product-list">
+            <!-- Productos cargados dinámicamente -->
+          </div>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section>
+          <form method="post" action="#">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" />
+              </div>
+              <div class="field">
+                <label for="message">Mensaje</label>
+                <textarea name="message" id="message" rows="3"></textarea>
+              </div>
+            </div>
+            <ul class="actions">
+              <li><input type="submit" value="Enviar Mensaje" /></li>
             </ul>
-            <ul class="icons">
-                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
+          </form>
+        </section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Dirección</h3>
+            <p>
+              1234 Somewhere Road #87257<br />
+              Nashville, TN 00000-0000
+            </p>
+          </section>
+          <section>
+            <h3>Teléfono</h3>
+            <p><a href="#">(000) 000-0000</a></p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">info@untitled.tld</a></p>
+          </section>
+          <section>
+            <h3>Social</h3>
+            <ul class="icons alt">
+              <li>
+                <a href="#" class="icon brands alt fa-twitter"
+                  ><span class="label">Twitter</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands alt fa-facebook-f"
+                  ><span class="label">Facebook</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands alt fa-instagram"
+                  ><span class="label">Instagram</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands alt fa-github"
+                  ><span class="label">GitHub</span></a
+                >
+              </li>
             </ul>
-        </nav>
+          </section>
+        </section>
+      </footer>
 
-        <!-- Main -->
-        <div id="main">
-
-            <!-- Productos -->
-            <section class="products">
-                <h2>Productos Disponibles</h2>
-                <div class="product-list" id="product-list">
-                    <!-- Productos cargados dinámicamente -->
-                </div>
-            </section>
-
-        </div>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <section>
-                <form method="post" action="#">
-                    <div class="fields">
-                        <div class="field">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" />
-                        </div>
-                        <div class="field">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" id="email" />
-                        </div>
-                        <div class="field">
-                            <label for="message">Mensaje</label>
-                            <textarea name="message" id="message" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Enviar Mensaje" /></li>
-                    </ul>
-                </form>
-            </section>
-            <section class="split contact">
-                <section class="alt">
-                    <h3>Dirección</h3>
-                    <p>1234 Somewhere Road #87257<br />
-                    Nashville, TN 00000-0000</p>
-                </section>
-                <section>
-                    <h3>Teléfono</h3>
-                    <p><a href="#">(000) 000-0000</a></p>
-                </section>
-                <section>
-                    <h3>Email</h3>
-                    <p><a href="#">info@untitled.tld</a></p>
-                </section>
-                <section>
-                    <h3>Social</h3>
-                    <ul class="icons alt">
-                        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-                    </ul>
-                </section>
-            </section>
-        </footer>
-
-        <!-- Copyright -->
-        <div id="copyright">
-            <ul><li>&copy; Argentum Online</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-        </div>
-
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Argentum Online</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
     </div>
 
     <!-- Scripts -->
@@ -113,78 +150,97 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-        // Inicializa Mercado Pago con tu Public Key
-        const mp = new MercadoPago('TEST-a404a37c-e4e7-4fac-bc08-8afdfb581ec7', {
-            locale: 'es-AR'
-        });
+      // Inicializa Mercado Pago con tu Public Key
+      const mp = new MercadoPago(
+        "APP_USR-adc78190-67f3-440e-adb1-7a2713902144",
+        {
+          locale: "es-AR",
+        }
+      );
+      const urlParams = new URLSearchParams(window.location.search);
+      const paymentId = urlParams.get('collection_id');
+      // Datos estáticos de los productos
+      const products = [
+        { id: "1", title: "Espada", price: 1000, image: "images/espada.jpg" },
+        {
+          id: "2",
+          title: "Armadura",
+          price: 2500,
+          image: "images/armadura.jpg",
+        },
+        {
+          id: "3",
+          title: "Poción de Vida",
+          price: 1,
+          image: "images/pocion.jpg",
+        },
+      ];
 
-        // Datos estáticos de los productos
-        const products = [
-            { id: '1', title: 'Espada', price: 1000, image: 'images/espada.jpg' },
-            { id: '2', title: 'Armadura', price: 2500, image: 'images/armadura.jpg' },
-            { id: '3', title: 'Poción de Vida', price: 200, image: 'images/pocion.jpg' }
-        ];
-
-        // Muestra productos en la página
-        function displayProducts() {
-            const productList = document.getElementById('product-list');
-            products.forEach(product => {
-                const productElement = document.createElement('div');
-                productElement.className = 'product';
-                productElement.innerHTML = `
+      // Muestra productos en la página
+      function displayProducts() {
+        const productList = document.getElementById("product-list");
+        products.forEach((product) => {
+          const productElement = document.createElement("div");
+          productElement.className = "product";
+          productElement.innerHTML = `
                     <img src="${product.image}" alt="${product.title}" />
                     <h3>${product.title}</h3>
                     <p>Precio: $${product.price}</p>
                     <button class="buy-button" data-product-id="${product.id}">Comprar</button>
                 `;
-                productList.appendChild(productElement);
-            });
+          productList.appendChild(productElement);
+        });
 
-            attachBuyButtons();
-        }
+        attachBuyButtons();
+      }
 
-        // Crea un checkout para cada botón de compra
-        function attachBuyButtons() {
-            const buyButtons = document.querySelectorAll('.buy-button');
-            buyButtons.forEach(button => {
-                button.addEventListener('click', async () => {
-                    const productId = button.getAttribute('data-product-id');
-                    const product = products.find(p => p.id === productId);
+      // Crea un checkout para cada botón de compra
+      function attachBuyButtons() {
+        const buyButtons = document.querySelectorAll(".buy-button");
+        buyButtons.forEach((button) => {
+          button.addEventListener("click", async () => {
+            const productId = button.getAttribute("data-product-id");
+            const product = products.find((p) => p.id === productId);
 
-                    try {
-                        const response = await fetch('http://localhost:3000/create_preference', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                title: product.title,
-                                quantity: 1,
-                                unit_price: product.price
-                            })
-                        });
+            try {
+              const response = await fetch(
+                "http://localhost:3000/create_preference",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    title: product.title,
+                    quantity: 1,
+                    unit_price: product.price,
+                  }),
+                }
+              );
 
-                        const preference = await response.json();
-                        if (preference.id) {
-                            mp.checkout({
-                                preference: {
-                                    id: preference.id
-                                },
-                                autoOpen: true // Abre automáticamente el checkout
-                            });
-                        } else {
-                            console.error('Error creando la preferencia:', preference.error);
-                        }
-                    } catch (error) {
-                        console.error('Error al intentar comprar:', error);
-                    }
+              const preference = await response.json();
+              if (preference.id) {
+                mp.checkout({
+                  preference: {
+                    id: preference.id,
+                  },
+                  autoOpen: true, // Abre automáticamente el checkout
                 });
-            });
-        }
+              } else {
+                console.error(
+                  "Error creando la preferencia:",
+                  preference.error
+                );
+              }
+            } catch (error) {
+              console.error("Error al intentar comprar:", error);
+            }
+          });
+        });
+      }
 
-        // Llama a la función para cargar productos al cargar la página
-        document.addEventListener('DOMContentLoaded', displayProducts);
+      // Llama a la función para cargar productos al cargar la página
+      document.addEventListener("DOMContentLoaded", displayProducts);
     </script>
-
-</body>
+  </body>
 </html>
