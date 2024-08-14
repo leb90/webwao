@@ -1,0 +1,115 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Crear Cuenta - Argentum Online</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+</head>
+<body class="is-preload">
+
+    <!-- Wrapper -->
+    <div id="wrapper">
+
+        <!-- Header -->
+        <header id="header">
+            <a href="index.html" class="logo">Argentum</a>
+        </header>
+
+        <!-- Main -->
+        <div id="main">
+            <section>
+                <h2>Crear Cuenta</h2>
+                <form id="create-account-form">
+                    <div class="fields">
+                        <div class="field">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" required />
+                        </div>
+                        <div class="field">
+                            <label for="password">Contraseña</label>
+                            <input type="password" name="password" id="password" required />
+                        </div>
+                        <div class="field">
+                            <label for="confirm-password">Confirmar Contraseña</label>
+                            <input type="password" name="confirm-password" id="confirm-password" required />
+                        </div>
+                    </div>
+                    <ul class="actions">
+                        <li><input type="submit" value="Crear Cuenta" /></li>
+                        <li><input type="button" id="backhome" value="Volver"></li>
+                    </ul>
+                </form>
+                <div id="create-error" style="color: red; display: none;"></div>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer id="footer">
+            <ul class="icons alt">
+                <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+                <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+                <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
+                <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
+            </ul>
+        </footer>
+
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+        document.getElementById("backhome").addEventListener("click", () => {
+            window.location.href = "index.html";
+        });
+
+        document.getElementById('create-account-form').addEventListener('submit', async (event) => {
+            event.preventDefault();
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm-password').value;
+            const createError = document.getElementById('create-error');
+
+            // Validar que las contraseñas coincidan
+            if (password !== confirmPassword) {
+                createError.style.display = 'block';
+                createError.textContent = 'Las contraseñas no coinciden.';
+                return;
+            }
+
+            try {
+                const response = await fetch('http://localhost:3000/create_account', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ email, password })
+                });
+
+                if (response.ok) {
+                    alert('Cuenta creada exitosamente. Ahora puedes iniciar sesión.');
+                    window.location.href = 'login.html'; // Redirige al login después de crear la cuenta
+                } else {
+                    const errorData = await response.json();
+                    createError.style.display = 'block';
+                    createError.textContent = errorData.error || 'Error al crear la cuenta.';
+                }
+            } catch (error) {
+                console.error('Error durante la creación de la cuenta:', error);
+                createError.style.display = 'block';
+                createError.textContent = 'Error al intentar crear la cuenta.';
+            }
+        });
+    </script>
+
+</body>
+</html>

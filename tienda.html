@@ -50,11 +50,23 @@
               ><span class="label">GitHub</span></a
             >
           </li>
+          <li><a href="login.html" id="login-button">Login</a></li>
+          <li>
+            <a href="#" id="logout-button" style="display: none">Logout</a>
+          </li>
+          <!-- Nuevo botón -->
+          <li><span id="login-status"></span></li>
         </ul>
       </nav>
 
       <!-- Main -->
       <div id="main">
+        <!-- Selección de personaje -->
+        <section class="character-selection" style="display: none;">
+          <h2>Seleccionar Personaje</h2>
+          <select id="character-select"></select>
+        </section>
+
         <!-- Productos -->
         <section class="products">
           <h2>Productos Disponibles</h2>
@@ -157,8 +169,10 @@
           locale: "es-AR",
         }
       );
+
       const urlParams = new URLSearchParams(window.location.search);
-      const paymentId = urlParams.get('collection_id');
+      const paymentId = urlParams.get("collection_id");
+
       // Datos estáticos de los productos
       const products = [
         { id: "1", title: "Espada", price: 1000, image: "images/espada.jpg" },
@@ -199,6 +213,18 @@
         const buyButtons = document.querySelectorAll(".buy-button");
         buyButtons.forEach((button) => {
           button.addEventListener("click", async () => {
+            const user = JSON.parse(localStorage.getItem("user"));
+            const selectedCharacter = document.getElementById("character-select").value;
+
+            if (!user) {
+              alert("Debes iniciar sesión para realizar una compra.");
+              window.location.href = "login.html"; // Redirige a la página de login
+              return;
+            }
+
+            // Guardar el personaje seleccionado en localStorage
+            localStorage.setItem('selectedCharacter', JSON.stringify(selectedCharacter));
+
             const productId = button.getAttribute("data-product-id");
             const product = products.find((p) => p.id === productId);
 
@@ -240,7 +266,43 @@
       }
 
       // Llama a la función para cargar productos al cargar la página
-      document.addEventListener("DOMContentLoaded", displayProducts);
+      document.addEventListener("DOMContentLoaded", () => {
+        // Verifica el estado de sesión
+        const user = JSON.parse(localStorage.getItem("user"));
+
+        if (user) {
+          // Mostrar los productos y personajes
+          displayProducts();
+          document.getElementById(
+            "login-status"
+          ).textContent = `Logueado como: ${user.email}`;
+          document.getElementById("login-button").style.display = "none";
+          document.getElementById("logout-button").style.display =
+            "inline-block";
+
+          const characterSelect = document.getElementById("character-select");
+          user.personajes.forEach((pj, index) => {
+            const option = document.createElement("option");
+            option.value = pj;
+            option.textContent = pj;
+            if (index === 0) option.selected = true; // Seleccionar el primer personaje por defecto
+            characterSelect.appendChild(option);
+          });
+
+          document.querySelector('.character-selection').style.display = 'block';
+        } else {
+            const productList = document.getElementById("product-list");
+            productList.innerHTML = "<h1>Debes iniciar sesión para ver los productos.</h1>";
+            productList.innerHTML += "<a href='login.html' class='button'>Iniciar Sesión</a>";
+        }
+
+        document
+          .getElementById("logout-button")
+          .addEventListener("click", () => {
+            localStorage.removeItem("user");
+            window.location.reload(); // Recargar la página para aplicar los cambios
+          });
+      });
     </script>
   </body>
 </html>

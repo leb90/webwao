@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Login - Argentum Online</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Argentum</a>
+      </header>
+
+      <!-- Main -->
+      <div id="main">
+        <section>
+          <h2>Login</h2>
+          <form id="login-form">
+            <div class="fields">
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" name="email" id="email" required />
+              </div>
+              <div class="field">
+                <label for="password">Contraseña</label>
+                <input type="password" name="password" id="password" required />
+              </div>
+            </div>
+            <ul class="actions">
+              <li><input type="submit" value="Iniciar Sesión" /></li>
+              <li><input type="button" id="backhome" value="Volver"></li>
+            </ul>
+          </form>
+          <div id="login-error" style="color: red; display: none"></div>
+          <p>¿No tienes cuenta? <a href="newacc.html">Crea una aquí</a></p>
+          <!-- Agregado -->
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <ul class="icons alt">
+          <li>
+            <a href="#" class="icon brands alt fa-twitter"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands alt fa-facebook-f"
+              ><span class="label">Facebook</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands alt fa-instagram"
+              ><span class="label">Instagram</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands alt fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+        </ul>
+      </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery.scrollex.min.js"></script>
+    <script src="assets/js/jquery.scrolly.min.js"></script>
+    <script src="assets/js/browser.min.js"></script>
+    <script src="assets/js/breakpoints.min.js"></script>
+    <script src="assets/js/util.js"></script>
+    <script src="assets/js/main.js"></script>
+
+    <script>
+      document.getElementById("backhome").addEventListener("click", () => {
+        window.location.href = "index.html";
+      });
+      document
+        .getElementById("login-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+
+          const email = document.getElementById("email").value;
+          const password = document.getElementById("password").value;
+          const loginError = document.getElementById("login-error");
+
+          try {
+            const response = await fetch("http://localhost:3000/login", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ email, password }),
+            });
+
+            if (response.ok) {
+              const data = await response.json();
+              localStorage.setItem("user", JSON.stringify(data)); // Guarda el usuario en localStorage
+              window.location.href = "index.html"; // Redirige al usuario a la página principal
+            } else {
+              loginError.style.display = "block";
+              loginError.textContent = "Email o contraseña incorrectos.";
+            }
+          } catch (error) {
+            console.error("Error durante el login:", error);
+            loginError.style.display = "block";
+            loginError.textContent = "Error al intentar iniciar sesión.";
+          }
+        });
+    </script>
+  </body>
+</html>

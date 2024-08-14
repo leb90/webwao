@@ -1,112 +1,167 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Confirmación de Pago - Argentum Online</title>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
     <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
-</head>
-<body class="is-preload">
-
+    <noscript
+      ><link rel="stylesheet" href="assets/css/noscript.css"
+    /></noscript>
+  </head>
+  <body class="is-preload">
     <!-- Wrapper -->
     <div id="wrapper" class="fade-in">
+      <!-- Intro -->
+      <div id="intro">
+        <h1>Argentum<br />Online</h1>
+        <p>
+          Bienvenido a Argentum Online, el MMORPG gratuito más popular de habla
+          hispana.
+        </p>
+        <ul class="actions">
+          <li>
+            <a
+              href="#header"
+              class="button icon solid solo fa-arrow-down scrolly"
+              >Continúa</a
+            >
+          </li>
+        </ul>
+      </div>
 
-        <!-- Intro -->
-        <div id="intro">
-            <h1>Argentum<br />Online</h1>
-            <p>Bienvenido a Argentum Online, el MMORPG gratuito más popular de habla hispana.</p>
+      <!-- Header -->
+      <header id="header">
+        <a href="index.html" class="logo">Argentum</a>
+      </header>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li class="active"><a href="index.html">Inicio</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li><a href="imagenes.html">Galería</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+        <ul class="icons">
+          <li>
+            <a href="#" class="icon brands fa-twitter"
+              ><span class="label">Twitter</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-facebook-f"
+              ><span class="label">Facebook</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-instagram"
+              ><span class="label">Instagram</span></a
+            >
+          </li>
+          <li>
+            <a href="#" class="icon brands fa-github"
+              ><span class="label">GitHub</span></a
+            >
+          </li>
+          <li><a href="login.html" id="login-button">Login</a></li>
+          <li>
+            <a href="#" id="logout-button" style="display: none">Logout</a>
+          </li>
+          <!-- Nuevo botón -->
+          <li><span id="login-status"></span></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Información de Confirmación de Pago -->
+        <section class="confirmation">
+          <h2>Confirmación de Pago</h2>
+          <p id="payment-status">Verificando el estado del pago...</p>
+          <button class="buy-button">
+            <a href="tienda.html">Volver a la tienda</a>
+          </button>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section>
+          <form method="post" action="#">
+            <div class="fields">
+              <div class="field">
+                <label for="name">Nombre</label>
+                <input type="text" name="name" id="name" />
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="text" name="email" id="email" />
+              </div>
+              <div class="field">
+                <label for="message">Mensaje</label>
+                <textarea name="message" id="message" rows="3"></textarea>
+              </div>
+            </div>
             <ul class="actions">
-                <li><a href="#header" class="button icon solid solo fa-arrow-down scrolly">Continúa</a></li>
+              <li><input type="submit" value="Enviar Mensaje" /></li>
             </ul>
-        </div>
-
-        <!-- Header -->
-        <header id="header">
-            <a href="index.html" class="logo">Argentum</a>
-        </header>
-
-        <!-- Nav -->
-        <nav id="nav">
-            <ul class="links">
-                <li class="active"><a href="index.html">Inicio</a></li>
-                <li><a href="noticias.html">Noticias</a></li>
-                <li><a href="imagenes.html">Galería</a></li>
-                <li><a href="tienda.html">Tienda</a></li>
+          </form>
+        </section>
+        <section class="split contact">
+          <section class="alt">
+            <h3>Dirección</h3>
+            <p>
+              1234 Somewhere Road #87257<br />
+              Nashville, TN 00000-0000
+            </p>
+          </section>
+          <section>
+            <h3>Teléfono</h3>
+            <p><a href="#">(000) 000-0000</a></p>
+          </section>
+          <section>
+            <h3>Email</h3>
+            <p><a href="#">info@untitled.tld</a></p>
+          </section>
+          <section>
+            <h3>Redes Sociales</h3>
+            <ul class="icons alt">
+              <li>
+                <a href="#" class="icon brands alt fa-twitter"
+                  ><span class="label">Twitter</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands alt fa-facebook-f"
+                  ><span class="label">Facebook</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands alt fa-instagram"
+                  ><span class="label">Instagram</span></a
+                >
+              </li>
+              <li>
+                <a href="#" class="icon brands alt fa-github"
+                  ><span class="label">GitHub</span></a
+                >
+              </li>
             </ul>
-            <ul class="icons">
-                <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
-                <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
-                <li><a href="#" class="icon brands fa-instagram"><span class="label">Instagram</span></a></li>
-                <li><a href="#" class="icon brands fa-github"><span class="label">GitHub</span></a></li>
-            </ul>
-        </nav>
+          </section>
+        </section>
+      </footer>
 
-        <!-- Main -->
-        <div id="main">
-
-            <!-- Información de Confirmación de Pago -->
-            <section class="confirmation">
-                <h2>Confirmación de Pago</h2>
-                <p id="payment-status">Verificando el estado del pago...</p>
-            </section>
-
-        </div>
-
-        <!-- Footer -->
-        <footer id="footer">
-            <section>
-                <form method="post" action="#">
-                    <div class="fields">
-                        <div class="field">
-                            <label for="name">Nombre</label>
-                            <input type="text" name="name" id="name" />
-                        </div>
-                        <div class="field">
-                            <label for="email">Email</label>
-                            <input type="text" name="email" id="email" />
-                        </div>
-                        <div class="field">
-                            <label for="message">Mensaje</label>
-                            <textarea name="message" id="message" rows="3"></textarea>
-                        </div>
-                    </div>
-                    <ul class="actions">
-                        <li><input type="submit" value="Enviar Mensaje" /></li>
-                    </ul>
-                </form>
-            </section>
-            <section class="split contact">
-                <section class="alt">
-                    <h3>Dirección</h3>
-                    <p>1234 Somewhere Road #87257<br />
-                        Nashville, TN 00000-0000</p>
-                </section>
-                <section>
-                    <h3>Teléfono</h3>
-                    <p><a href="#">(000) 000-0000</a></p>
-                </section>
-                <section>
-                    <h3>Email</h3>
-                    <p><a href="#">info@untitled.tld</a></p>
-                </section>
-                <section>
-                    <h3>Redes Sociales</h3>
-                    <ul class="icons alt">
-                        <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
-                        <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
-                        <li><a href="#" class="icon brands alt fa-instagram"><span class="label">Instagram</span></a></li>
-                        <li><a href="#" class="icon brands alt fa-github"><span class="label">GitHub</span></a></li>
-                    </ul>
-                </section>
-            </section>
-        </footer>
-
-        <!-- Copyright -->
-        <div id="copyright">
-            <ul><li>&copy; Argentum Online</li><li>Design: <a href="https://html5up.net">HTML5 UP</a></li></ul>
-        </div>
-
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Argentum Online</li>
+          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+        </ul>
+      </div>
     </div>
 
     <!-- Scripts -->
@@ -119,47 +174,92 @@
     <script src="assets/js/main.js"></script>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Captura los parámetros de la URL
-            const urlParams = new URLSearchParams(window.location.search);
-            const paymentId = urlParams.get('collection_id');
-            const paymentStatus = urlParams.get('collection_status');
-            const preferenceId = urlParams.get('preference_id');
+      document.addEventListener("DOMContentLoaded", function () {
+        // Captura los parámetros de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const paymentId = urlParams.get("collection_id");
+        const paymentStatus = urlParams.get("collection_status");
+        const preferenceId = urlParams.get("preference_id");
 
-            // Actualiza la página con el estado del pago
-            const paymentStatusElement = document.getElementById('payment-status');
-            if (paymentId) {
-                  fetch(
-                    `http://localhost:3000/webhook?payment_id=${paymentId}`
-                  )
-                    .then((response) => response.json())
-                    .then((data) => {
-                      if (data.status === "approved") {
-                        console.log("Pago aprobado");
-                      } else {
-                        console.log("Pago pendiente");
-                      }
-                    })
-                    .catch((error) =>
-                      console.error(
-                        "Error al verificar el estado del pago:",
-                        error
-                      )
-                    );
-                }
-            if (paymentId) {
-                if (paymentStatus === 'approved') {
-                    paymentStatusElement.textContent = 'Pago aprobado con éxito. ¡Gracias por tu compra!';
-                } else if (paymentStatus === 'pending') {
-                    paymentStatusElement.textContent = 'Tu pago está pendiente. Te notificaremos cuando se confirme.';
-                } else {
-                    paymentStatusElement.textContent = 'El pago no fue exitoso. Por favor, intenta nuevamente.';
-                }
-            } else {
-                paymentStatusElement.textContent = 'No se pudo verificar el estado del pago.';
-            }
-        });
+        // Obtengo el id del usuario y sus datos
+        const selectedCharacter = localStorage.getItem("selectedCharacter");
+        const user = JSON.parse(localStorage.getItem("user")); // Obtener y parsear el user una sola vez
+        const email = user.email;
+
+        // Verifica si el paymentId ya fue procesado
+        const processedPayments =
+          JSON.parse(localStorage.getItem("processedPayments")) || [];
+
+        // Actualiza la página con el estado del pago
+        const paymentStatusElement = document.getElementById("payment-status");
+
+        if (paymentId && !processedPayments.includes(paymentId)) {
+          fetch(
+            `http://localhost:3000/webhook?payment_id=${paymentId}&user=${selectedCharacter}&email=${email}`
+          )
+            .then((response) => response.json())
+            .then((data) => {
+              if (data.status === "approved") {
+                console.log("Pago aprobado");
+                // Marcar el paymentId como procesado
+                processedPayments.push(paymentId);
+                localStorage.setItem(
+                  "processedPayments",
+                  JSON.stringify(processedPayments)
+                );
+              } else {
+                console.log("Pago pendiente");
+              }
+              // Elimina los parámetros de la URL después de procesarlos
+              window.history.replaceState(
+                {},
+                document.title,
+                window.location.pathname
+              );
+            })
+            .catch((error) =>
+              console.error("Error al verificar el estado del pago:", error)
+            );
+        } else {
+          console.log(
+            "El pago ya fue procesado o no se encontró un paymentId."
+          );
+          paymentStatusElement.textContent = "El pago ya fue procesado.";
+        }
+
+        if (paymentId) {
+          if (paymentStatus === "approved") {
+            paymentStatusElement.textContent =
+              "Pago aprobado con éxito. ¡Gracias por tu compra!";
+          } else if (paymentStatus === "pending") {
+            paymentStatusElement.textContent =
+              "Tu pago está pendiente. Te notificaremos cuando se confirme.";
+          } else {
+            paymentStatusElement.textContent =
+              "El pago no fue exitoso. Por favor, intenta nuevamente.";
+          }
+        } else {
+          paymentStatusElement.textContent =
+            "No se pudo verificar el estado del pago.";
+        }
+
+        // Manejo de sesión
+        if (user) {
+          document.getElementById(
+            "login-status"
+          ).textContent = `Logueado como: ${user.email}`;
+          document.getElementById("login-button").style.display = "none";
+          document.getElementById("logout-button").style.display =
+            "inline-block";
+        }
+
+        document
+          .getElementById("logout-button")
+          .addEventListener("click", () => {
+            localStorage.removeItem("user");
+            window.location.reload();
+          });
+      });
     </script>
-
-</body>
+  </body>
 </html>
