@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>World of Argentum Online</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, user-scalable=no"
+    />
+    <link rel="stylesheet" href="assets/css/main.css" />
+  </head>
+  <body>
+    <!-- Wrapper -->
+    <div id="wrapper">
+      <!-- Intro -->
+      <div id="intro">
+        <h1>World of Argentum Online</h1>
+        <p>Bienvenido a World of Argentum Online, el MMORPG gratuito más popular de habla hispana.</p>
+        <ul class="actions">
+          <li>
+            <a href="#main" class="button icon solid solo fa-arrow-down scrolly">Continúa</a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul class="links">
+          <li><a href="#">Inicio</a></li>
+          <li><a href="noticias.html">Noticias</a></li>
+          <li class="active"><a href="descarga.html">Descargas</a></li>
+          <li><a href="tienda.html">Tienda</a></li>
+        </ul>
+        <ul class="icons">
+          <li><a href="#" class="icon brands fa-twitter"><span class="label">Twitter</span></a></li>
+          <li><a href="#" class="icon brands fa-facebook-f"><span class="label">Facebook</span></a></li>
+          <li><a href="login.html" id="login-button">Login</a></li>
+          <li><a href="#" id="logout-button" style="display: none">Logout</a></li>
+          <li><span id="login-status"></span></li>
+        </ul>
+      </nav>
+
+      <!-- Main -->
+      <div id="main">
+        <!-- Información del Juego -->
+        <section class="info">
+          <h2>Estado del Servidor</h2>
+          <p>Jugadores en línea: <span id="online-players">123</span></p>
+        </section>
+
+        <!-- Sección de Descargas -->
+        <section class="downloads" style="text-align: center; padding: 50px;">
+          <h2>Descargas</h2>
+          <p>Descarga World of Argentum Online y sumérgete en la aventura.</p>
+          <!-- Enlaces de descarga -->
+          <div style="display: flex; justify-content: center; gap: 20px; flex-wrap: wrap;">
+            <!-- Enlace de descarga para Windows -->
+            <a href="path/to/windows-installer.exe" class="button large" download>
+              Descargar para Windows
+            </a>
+          </div>
+          <!-- Mensaje de advertencia o requisitos -->
+          <p style="margin-top: 20px;">
+            * Asegúrate de que tu sistema cumpla con los requisitos mínimos antes de descargar.
+          </p>
+        </section>
+      </div>
+
+      <!-- Footer -->
+      <footer id="footer">
+        <section class="split contact">
+          <section>
+            <h3>Email</h3>
+            <p><a href="mailto:info@argentumonline.com">info@argentumonline.com</a></p>
+          </section>
+          <section>
+            <h3>Redes Sociales</h3>
+            <ul class="icons alt">
+              <li><a href="#" class="icon brands alt fa-twitter"><span class="label">Twitter</span></a></li>
+              <li><a href="#" class="icon brands alt fa-facebook-f"><span class="label">Facebook</span></a></li>
+            </ul>
+          </section>
+        </section>
+      </footer>
+
+      <!-- Copyright -->
+      <div id="copyright">
+        <ul>
+          <li>&copy; Argentum Online</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const user = localStorage.getItem("user");
+        if (user) {
+          document.getElementById("login-status").textContent = `Logueado como: ${JSON.parse(user).email}`;
+          document.getElementById("login-button").style.display = "none";
+          document.getElementById("logout-button").style.display = "inline-block";
+        }
+
+        document.getElementById("logout-button").addEventListener("click", () => {
+          localStorage.removeItem("user");
+          window.location.reload(); // Recargar la página para aplicar los cambios
+        });
+      });
+
+      // Función para obtener la cantidad de jugadores en línea
+      function fetchOnlinePlayers() {
+        fetch("http://localhost:3000/online-users")
+          .then((response) => response.json())
+          .then((data) => {
+            document.getElementById("online-players").textContent = data.onlineUsers;
+          })
+          .catch((error) => {
+            document.getElementById("online-players").textContent = 0;
+            console.error("Error al obtener los jugadores en línea:", error);
+          });
+      }
+
+      // Llamar a la función inmediatamente al cargar la página
+      window.onload = function () {
+        fetchOnlinePlayers();
+      };
+
+      // Actualizar los jugadores en línea cada 30 segundos
+      setInterval(fetchOnlinePlayers, 30000);
+    </script>
+  </body>
+</html>
