@@ -109,7 +109,7 @@
 
       // Función para obtener la cantidad de jugadores en línea
       function fetchOnlinePlayers() {
-        fetch("http://localhost:3000/online-users")
+        fetch("http://45.235.98.182:3000/online-users")
           .then((response) => response.json())
           .then((data) => {
             document.getElementById("online-players").textContent = data.onlineUsers;

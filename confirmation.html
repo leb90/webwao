@@ -195,7 +195,7 @@
 
         if (paymentId && !processedPayments.includes(paymentId)) {
           fetch(
-            `http://localhost:3000/webhook?payment_id=${paymentId}&user=${selectedCharacter}&email=${email}`
+            `http://45.235.98.182:3000/webhook?payment_id=${paymentId}&user=${selectedCharacter}&email=${email}`
           )
             .then((response) => response.json())
             .then((data) => {
